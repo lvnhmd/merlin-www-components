@@ -9,7 +9,10 @@ const rename = require('gulp-rename');
 const merge = require('merge-stream');
 const autoprefixer = require('gulp-autoprefixer');
 const SASS_IMPORTER = require('@cnbritain/merlin-sass-custom-importer');
+const gulpif = require('gulp-if');
+const cssmin = require('gulp-cssmin');
 
+const CSSChunker = require('../pipes/CSSChunker');
 const utils = require('../utils');
 
 const ENV = utils.getEnvironment();
@@ -31,7 +34,7 @@ module.exports = function taskSassExport(taskConfig, browserSync){
             const sassConfig = {
                 importer: SASS_IMPORTER(
                     taskConfig.merlin, taskConfig.merlin.name),
-                outputStyle: outputStyle
+                outputStyle: 'expanded'
             };
 
             return gulp.src(file)
@@ -43,6 +46,10 @@ module.exports = function taskSassExport(taskConfig, browserSync){
                         "ie >= 10"
                     ]
                 }))
+                .pipe(CSSChunker())
+                .pipe(gulpif(function(){
+                    return outputStyle === 'compressed';
+                }, cssmin()))
                 .pipe(rename(renameConfig))
                 // I have a feeling I'm going to need to check this
                 .pipe(sourcemaps.write('./'))
