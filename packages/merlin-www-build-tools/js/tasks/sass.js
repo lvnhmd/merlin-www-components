@@ -31,6 +31,10 @@ module.exports = function taskSassExport(taskConfig, browserSync){
 
             // We have to create a fresh sass importer for each file as it
             // keeps track of what files its imported.
+            // We set the sass config to be expanded so it keeps comments in
+            // the css. We use a specific comment to split the file into
+            // chunks. Then depending on the environment, we wil minify the
+            // css on our own using gulp-cssmin.
             const sassConfig = {
                 importer: SASS_IMPORTER(
                     taskConfig.merlin, taskConfig.merlin.name),
