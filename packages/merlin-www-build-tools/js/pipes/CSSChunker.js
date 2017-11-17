@@ -64,6 +64,9 @@ module.exports = function CSSChunker(options={}){
         if(Object.keys(chunks).length == 0){
             this.push(file);
         } else {
+            // Add the original file so we still create it too
+            this.push(file);
+
             for(const [chunkKey, chunkCss] of Object.entries(chunks)){
                 const filename = options.filenameFormatter(
                     chunkKey, base, ext, file);
