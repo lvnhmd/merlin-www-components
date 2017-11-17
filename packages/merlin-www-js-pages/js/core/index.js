@@ -1,6 +1,9 @@
 "use strict";
 
 import es6Promise from 'es6-promise';
+// Load these for css lazyload
+import loadCSS from 'fg-loadcss/src/loadCSS';
+import cssrelpreload from 'fg-loadcss/src/cssrelpreload';
 
 import CONFIG_BRAND from '@cnbritain/merlin-www-common';
 import {
