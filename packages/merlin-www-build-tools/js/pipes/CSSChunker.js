@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 const through2 = require('through2');
 const gutil = require('gulp-util');
 const PluginError = gutil.PluginError;
