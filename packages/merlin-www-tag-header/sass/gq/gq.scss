@@ -94,7 +94,7 @@
 .tg-header__intro {}
 .tg-header__intro__image {}
 
-.tg-header__intro__title {
+.tg-header__title {
 	@include font("GOTHAM", 24px, 700, 28px, 60);
 	color: $white;
 	margin: 0;
@@ -106,7 +106,7 @@
 	display: none;
 }
 
-.tg-header__intro__description {
+.tg-header__description {
 	color: $oslo-gray;
 	margin-top: 24px;
 	margin-left: auto;
@@ -117,19 +117,18 @@
 		margin-top: 32px;
 	}
 
-	a {
+	.bb-a {
 		border-bottom: 1px solid;
 		color: inherit;
-		text-decoration: none;
 	}
 
-	p {
+	.bb-p {
 		@include font("GOTHAM", 14px, null, 20px, -2);
+		color: inherit;
 		@include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
 			@include font-size(15px);
 			@include line-height(24px);
 		}
-		color: inherit;
 	}
 
 	> *:first-child {

@@ -61,7 +61,6 @@ li.c-topic-strip__item {
     margin-right: -$MOBILE_SIDE_GUTTER;
     padding-left: $MOBILE_SIDE_GUTTER;
     padding-right: $MOBILE_SIDE_GUTTER;
-    text-align: center;
 
     @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
         margin-left: 0;
@@ -69,13 +68,30 @@ li.c-topic-strip__item {
         padding-left: 0;
         padding-right: 0;
     }
+
+    li.c-topic-strip__item {
+        border-right: none;
+        padding-right: 0px;
+    }
 }
 
 .c-topic-strip__btn {
     @include button-group();
     @include button-group-light();
 
+    @include font("BRANDON GROTESQUE", 12px, 700, 12px);
+    letter-spacing: 1px;
+
     &:hover {
         @include button-group-light-hover();
+    }
+}
+
+.c-topic-strip__btn--related {
+    @include button-group-two();
+    @include button-group-two-light();
+
+    &:hover {
+        @include button-group-two-light-hover();
     }
 }

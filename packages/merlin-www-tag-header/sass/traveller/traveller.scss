@@ -1,3 +1,4 @@
+@import "@cnbritain/merlin-www-buttons:traveller";
 @import "@cnbritain/merlin-www-common:traveller";
 @import "@cnbritain/merlin-www-card-list:traveller";
 @import "@cnbritain/merlin-www-image:traveller";
@@ -119,7 +120,7 @@
 .tg-header__intro {}
 .tg-header__intro__image {}
 
-.tg-header__intro__title {
+.tg-header__title {
 	@include font("LULO ONE", 28px, 700, 32px, -35);
 	color: $SHERPA-BLUE;
 	margin: 0 0 12px 0;
@@ -132,11 +133,84 @@
 	}
 }
 
+.tg-header__sponsor {
+	@include font("PROXIMA NOVA CONDENSED", 12px, 400, 16px);
+	display: table;
+	margin-bottom: 24px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 24px;
+	text-align: center;
+	position: relative;
+
+	&:before {
+		background-color: $PORCELAIN;
+		content: "";
+		height: 1px;
+		left: 50%;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		width: 120px;
+
+		@include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+			display: none;
+		}
+	}
+
+	@include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+		margin-bottom: 32px;
+	}
+}
+
+.tg-header__sponsor-prefix {
+	display: inline-block;
+	font-style: italic;
+	padding: 8px 0 0 0;
+	text-transform: lowercase;
+	white-space: nowrap;
+
+	@include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+		display: table-cell;
+		padding: 0;
+		vertical-align: middle;
+	}
+}
+
+.tg-header__sponsor-name {
+	color: $MUSTASAARI;
+	letter-spacing: 1px;
+	padding-left: 6px;
+	text-transform: uppercase;
+}
+
+.tg-header__sponsor-image {
+	img {
+	    height: auto;
+	    margin: 4px auto 0 auto;
+	    max-height: 40px;
+	    max-width: 140px;
+	    width: auto;
+	}
+
+	@include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+		display: table-cell;
+		margin-top: 0;
+		padding-left: 16px;
+		vertical-align: middle;
+
+		img {
+			max-height: 48px;
+			margin-top: 0;
+		}
+	}
+}
+
 .tg-header__separator {
 	display: none;
 }
 
-.tg-header__intro__description {
+.tg-header__description {
 	color: $MUSTASAARI;
 	margin: 12px auto 24px auto;
 	max-width: 800px;
@@ -146,20 +220,12 @@
 		margin-top: 16px;
 	}
 
-	a {
-	    border-bottom: 1px solid;
+	.bb-a {
 	    color: inherit;
-		padding-bottom: 3px;
 	}
 
-	p {
-		@include font("FREIGHT TEXT", 18px, 400, 28px);
+	.bb-p {
 		color: inherit;
-
-		@include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
-			@include font-size(20px);
-			@include line-height(32px);
-		}
 	}
 
 	> *:first-child {
@@ -168,6 +234,18 @@
 
 	> *:last-child {
 		margin-bottom: 0;
+	}
+}
+
+.tg-header__description-expand {
+	margin-top: 24px;
+}
+
+.tg-header__expand-btn {
+	@include button-single();
+	@include button-single-light();
+	&:hover {
+		@include button-single-light-hover();
 	}
 }
 

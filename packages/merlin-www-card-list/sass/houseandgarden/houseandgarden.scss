@@ -28,9 +28,14 @@
     }
 }
 
+.c-card-list--a-recommended,
 .c-card-list--c-video-articles,
 .c-card-list--c-curated,
-.c-card-list--c-tag {
+.c-card-list--c-tag,
+.c-card-section--c-contributors,
+.c-card-list--mag-articles,
+.c-card-list--v-genre-articles,
+.c-card-list--s-results {
     margin: -10px -10px;
 
     .c-card-list__item {
@@ -39,18 +44,18 @@
         margin: 10px 0;
         width: 100%;
 
-        @include one-column-size() {
-            & + .c-card-list__item {
-                .c-card {
-                    border-top: 1px solid $silver;
-                    padding-top: 10px;
-
-                    &.c-card--dark {
-                        border-top: 1px solid $tundora;
-                    }
-                }
-            }
-        }
+        //@include one-column-size() {
+        //    & + .c-card-list__item {
+        //        .c-card {
+        //            border-top: 1px solid $silver;
+        //            padding-top: 10px;
+        //
+        //            &.c-card--dark {
+        //                border-top: 1px solid $tundora;
+        //            }
+        //        }
+        //    }
+        //}
 
         @include two-column-size() {
             width: 50%;
@@ -62,133 +67,90 @@
     }
 }
 
-// .c-card-list--a-recommended,
-// .c-card-list--v-genre-articles,
-// .c-card-list--mag-articles {
-//     margin: -6px -12px;
+.c-card-list--a-recommended,
+.c-card-list--v-genre-articles,
+.c-card-list--tg-articles,
+.c-card-list--v-articles {
+    .c-card__image__icon {
+        background-color: $vanilla-ice;
 
-//     @include two-column-size() {
-//         margin: -16px -12px;
-//     }
+        svg {
+            fill: $mine-shaft;
+        }
+    }
+}
 
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 6px 0;
-//         width: 100%;
+.c-card-list--c-video-articles {
+    .c-card:hover {
+        .c-card__title {
+            span {
+                box-shadow: inset 0 -0.4em 0 0 $trout;
+            }
+        }
+    }
+}
 
-//         @include one-column-size() {
-//             & + .c-card-list__item {
-//                 .c-card {
-//                     border-top: 1px solid $ISABEL;
-//                     padding-top: 12px;
+.c-card-list--v-related-articles {
+    margin: -10px -10px;
 
-//                     &.c-card--dark {
+    .c-card-list__item {
+        display: inline-block;
+        padding: 0 10px;
+        margin: 10px 0;
+        width: 100%;
 
-//                     }
-//                 }
-//             }
-//         }
+        .c-card__images {
+            &:after {
+                @include font("BRANDON GROTESQUE", 10px, 700, 10px);
+                background-color: $ebony-clay;
+                bottom: 0;
+                color: $white;
+                content: "Now Playing";
+                left: 0;
+                letter-spacing: 1px;
+                opacity: 0;
+                padding: 10px;
+                position: absolute;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+        }
 
-//         @include two-column-size() {
-//             margin: 16px 0;
-//             width: 50%;
-//         }
+        &.is-active {
+            .c-card__images {
+                &:after {
+                    opacity: 1;
+                }
+            }
 
-//         @include four-column-size() {
-//             width: 25%;
-//         }
-//     }
-// }
+            .c-card__image {
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
 
-// .c-card-list--v-related-articles {
-//     margin: -6px -12px;
+.c-card-list--c-splash {
+    margin: -10px -10px;
 
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 6px 0;
-//         width: 100%;
+    .c-card-list__item {
+        display: inline-block;
+        padding: 0 10px;
+        margin: 10px 0;
+        vertical-align: middle;
+        width: 100%;
 
-//         & + .c-card-list__item {
-//             .c-card {
-//                 border-top: 1px solid rgba($PORCELAIN, 0.12);
-//                 padding-top: 12px;
+        @include two-column-size() {
+            width: 50%;
+        }
 
-//                 &.c-card--dark {
-
-//                 }
-//             }
-//         }
-
-//         .c-card__images {
-//             &:after {
-//                 @include font("PROXIMA NOVA CONDENSED", 10px, 600, 10px);
-//                 color: $WHITE;
-//                 content: "Now Playing";
-//                 left: 50%;
-//                 letter-spacing: 1px;
-//                 opacity: 0;
-//                 position: absolute;
-//                 text-transform: uppercase;
-//                 top: 50%;
-//                 transform: translate(-50%, -50%);
-//                 transition-duration: 300ms;
-//                 white-space: nowrap;
-//             }
-//         }
-
-//         .c-card__image {
-//             &:after {
-//                 background-color: rgba($BLACK, 0.5);
-//                 bottom: 0;
-//                 content: "";
-//                 height: 100%;
-//                 left: 0;
-//                 opacity: 0;
-//                 position: absolute;
-//                 right: 0;
-//                 top: 0;
-//                 transition-duration: 300ms;
-//                 width: 100%;
-//             }
-//         }
-
-//         &.is-active {
-//             .c-card__images {
-//                 &:after {
-//                     opacity: 1;
-//                 }
-//             }
-
-//             .c-card__image {
-//                 &:after {
-//                     opacity: 1;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .c-card-list--c-splash {
-//     margin: -12px -12px;
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 12px 0;
-//         vertical-align: middle;
-//         width: 100%;
-
-//         @include two-column-size() {
-//             width: 50%;
-//         }
-
-//         @include four-column-size() {
-//             width: 25%;
-//         }
-//     }
-// }
+        @include four-column-size() {
+            width: 25%;
+        }
+    }
+}
 
 .c-card-list--c-magazine-articles {
     margin: -10px -10px;
@@ -198,228 +160,164 @@
         padding: 0 10px;
         margin: 10px 0;
         width: 100%;
+    }
+}
 
-        & + .c-card-list__item {
+.c-card-list--c-contributors {
+    margin: -10px -10px;
+    text-align: center;
+
+    .c-card-list__item {
+        display: inline-block;
+        padding: 0 10px;
+        margin: 10px 0;
+        width: 100%;
+
+        @include two-column-size() {
+            width: 50%;
+        }
+
+        @include three-column-size() {
+            max-width: 275px;
+            width: 33.33333%;
+        }
+    }
+}
+
+.c-card-list--tg-header-articles {
+    margin: -10px -10px;
+
+    .c-card-list__item {
+        display: inline-block;
+        padding: 0 10px;
+        margin: 10px 0;
+        width: 100%;
+
+        @include two-column-size() {
+            width: 50%;
+        }
+
+        @include four-column-size() {
+            width: 33.33333%;
+        }
+    }
+}
+
+.c-card-list--tg-articles {
+   margin: -10px -10px;
+
+   .c-card-list__item {
+       display: inline-block;
+       padding: 0 10px;
+       margin: 10px 0;
+       width: 100%;
+       //@include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {}
+
+       .c-card {
+           //border-top: 1px solid $silver;
+           padding-top: 10px;
+
+           @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
+               padding-top: 20px;
+           }
+
+           //&.c-card--dark {
+           //
+           //}
+       }
+
+       &:first-child {
+           .c-card {
+               border-top: none;
+               padding-top: 0;
+
+               //&.c-card--dark {
+               //
+               //}
+           }
+       }
+   }
+}
+
+.c-card-list--tg-articles-grid,
+.c-card-list--v-articles {
+    margin: -20px -10px;
+
+    .c-card-list__item {
+        display: inline-block;
+        padding: 0 10px;
+        margin: 20px 0;
+        width: 100%;
+
+        @include one-column-size() {
             .c-card {
-                border-top: 1px solid $silver;
-                padding-top: 10px;
+                //border-top: 1px solid $silver;
+                padding-top: 20px;
 
-                &.c-card--dark {
-                    border-top: 1px solid $tundora;
+                //&.c-card--dark {
+                //
+                //}
+            }
+
+            &:first-child {
+                .c-card {
+                    border-top: none;
+                    padding-top: 0;
+
+                    //&.c-card--dark {
+                    //
+                    //}
+                }
+            }
+        }
+
+        @include two-column-size() {
+            width: 50%;
+        }
+
+        @include four-column-size() {
+            width: 33.33333%;
+        }
+    }
+}
+
+.c-card-list--mag-magazines {
+    margin: -10px -10px;
+
+    .c-card-list__item {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 0 10px;
+        width: 50%;
+    }
+
+    @include four-column-size() {
+        margin: -17px -9px;
+
+        .c-card-list__item {
+            margin: 17px 0;
+            padding: 0 9px;
+            width: 25%;
+        }
+    }
+
+    .c-card {
+
+        .c-card__title {
+            @include font-size(12px);
+
+                 @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+                     @include font-size(15px);
+                 }
+        }
+
+        &:hover {
+            .c-card__title {
+                span {
+                    border-bottom: 2px solid $careys-pink;
+                    box-shadow: none;
                 }
             }
         }
     }
 }
-
-// .c-card-list--c-contributors {
-//     margin: -10px -12px;
-//     text-align: center;
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 10px 0;
-//         width: 100%;
-
-//         @include one-column-size() {
-//             & + .c-card-list__item {
-//                 .c-card {
-//                     border-top: 1px solid $ISABEL;
-//                     padding-top: 12px;
-
-//                     &.c-card--dark {
-
-//                     }
-//                 }
-//             }
-//         }
-
-//         @include two-column-size() {
-//             max-width: 275px;
-//             width: 33.33333%;
-//         }
-//     }
-// }
-
-// .c-card-list--tg-header-articles {
-//     margin: -16px -12px;
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 16px 0;
-//         width: 100%;
-
-//         @include two-column-size() {
-//             width: 50%;
-//         }
-
-//         @include four-column-size() {
-//             width: 33.33333%;
-//         }
-//     }
-// }
-
-// .c-card-list--tg-articles {
-//     margin: -6px -12px;
-//     @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
-//         margin: -20px -12px;
-//     }
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 6px 0;
-//         width: 100%;
-//         @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
-//             margin: 20px 0;
-//         }
-
-//         .c-card {
-//             border-top: 1px solid $ISABEL;
-//             padding-top: 12px;
-//             @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
-//                 padding-top: 40px;
-//             }
-
-//             &.c-card--dark {
-
-//             }
-//         }
-
-//         &:first-child {
-//             .c-card {
-//                 border-top: none;
-//                 padding-top: 0;
-
-//                 &.c-card--dark {
-
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .c-card-list--s-results {
-//     margin: -6px -12px;
-
-//     @include two-column-size() {
-//         margin: -16px -12px;
-//     }
-
-//     @include four-column-size() {
-//         margin: -24px -12px;
-//     }
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 6px 0;
-//         width: 100%;
-
-//         @include one-column-size() {
-//             .c-card {
-//                 border-top: 1px solid $ISABEL;
-//                 padding-top: 12px;
-
-//                 &.c-card--dark {
-
-//                 }
-//             }
-
-//             &:first-child {
-//                 .c-card {
-//                     border-top: none;
-//                     padding-top: 0;
-
-//                     &.c-card--dark {
-
-//                     }
-//                 }
-//             }
-//         }
-
-//         @include two-column-size() {
-//             margin: 16px 0;
-//             width: 50%;
-//         }
-
-//         @include four-column-size() {
-//             margin: 24px 0;
-//             width: 25%;
-//         }
-//     }
-// }
-
-// .c-card-list--tg-articles-grid,
-// .c-card-list--v-articles {
-//     margin: -6px -12px;
-
-//     @include two-column-size() {
-//         margin: -16px -12px;
-//     }
-
-//     @include four-column-size() {
-//         margin: -24px -12px;
-//     }
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 6px 0;
-//         width: 100%;
-
-//         @include one-column-size() {
-//             .c-card {
-//                 border-top: 1px solid $ISABEL;
-//                 padding-top: 12px;
-
-//                 &.c-card--dark {
-
-//                 }
-//             }
-
-//             &:first-child {
-//                 .c-card {
-//                     border-top: none;
-//                     padding-top: 0;
-
-//                     &.c-card--dark {
-
-//                     }
-//                 }
-//             }
-//         }
-
-//         @include two-column-size() {
-//             margin: 16px 0;
-//             width: 50%;
-//         }
-
-//         @include four-column-size() {
-//             margin: 24px 0;
-//             width: 33.33333%;
-//         }
-//     }
-// }
-
-// .c-card-list--mag-magazines {
-//     margin: -12px -12px;
-
-//     @include four-column-size() {
-//         margin: -24px -12px;
-//     }
-
-//     .c-card-list__item {
-//         display: inline-block;
-//         padding: 0 12px;
-//         margin: 12px 0;
-//         width: 50%;
-
-//         @include four-column-size() {
-//             margin: 24px 0;
-//             width: 25%;
-//         }
-//     }
-// }

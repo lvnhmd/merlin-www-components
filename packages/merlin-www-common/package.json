@@ -1,11 +1,17 @@
 {
   "name": "@cnbritain/merlin-www-common",
-  "version": "1.7.2",
+  "version": "1.7.22",
   "description": "",
   "main": "js/index.js",
-  "scripts": {},
+  "scripts": {
+    "demo": "merlin-component-demo-server merlin.json",
+    "lint": "eslint -c ../../.eslintrc.json ./js/**/*"
+  },
   "dependencies": {
-    "@cnbritain/merlin-www-assets": "^1.7.1"
+    "@cnbritain/merlin-www-assets": "^1.7.13"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0"
   },
   "author": "",
   "license": "ISC"

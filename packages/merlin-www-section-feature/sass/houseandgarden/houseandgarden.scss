@@ -44,7 +44,7 @@
 	&:hover {
 		.c-feature__title {
   			span {
-  				box-shadow: inset 0 -0.5em 0 0 rgba($careys-pink, 0.5);
+  				box-shadow: inset 0 -0.4em 0 0 $careys-pink;
   			}
 		}
 	}
@@ -54,12 +54,14 @@
 .c-feature__images--multiple {}
 
 .c-feature__content {
-	padding: 15px 20px 30px 20px;
+	padding: 20px 20px 0px 20px;
 	text-align: center;
 
 	@include min-screen($FEATURE_LARGE_BREAKPOINT) {
 		border: 1px solid $mine-shaft;
-		padding: 40px;
+		padding: 50px;
+		text-align: left;
+		vertical-align: top;
 	}
 }
 
@@ -69,7 +71,7 @@
 }
 
 .c-feature__image__wrapper {
-	background-color: $wild-sand;
+	background-color: $mercury;
 	padding-top: 66.66666%;
 }
 
@@ -81,12 +83,12 @@
 	@include font("BRANDON GROTESQUE", 10px, 700, 10px);
 	color: $mine-shaft;
 	letter-spacing: 1px;
-	margin-bottom: 5px;
+	margin-bottom: 7px;
 	margin-top: 0;
 	text-transform: uppercase;
 
 	@include min-screen($FEATURE_LARGE_BREAKPOINT) {
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 	}
 }
 
@@ -94,13 +96,13 @@
 	@include font("MILLER_DISPLAY", 25px, 700, 27px);
 	color: $mine-shaft;
 	letter-spacing: 0.5px;
-	margin: 5px 0 15px 0;
+	margin: 7px 0 10px 0;
 
     @include min-screen($FEATURE_LARGE_BREAKPOINT) {
-    	@include font-size(40px);
-    	@include line-height(43px);
+    	@include font-size(35px);
+    	@include line-height(38px);
     	letter-spacing: 0px;
-    	margin: 10px 0 25px 0;
+    	margin: 15px 0 10px 0;
 	}
 }
 
@@ -121,13 +123,13 @@
     @include font("BRANDON GROTESQUE", 10px, null, 10px);
     color: $mine-shaft;
     letter-spacing: 1px;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
     margin-top: 10px;
     text-transform: uppercase;
 
     @include min-screen($FEATURE_LARGE_BREAKPOINT) {
-    	margin-bottom: 10px;
-    	margin-top: 25px;
+    	margin-bottom: 7px;
+    	margin-top: 15px;
     }
 }
 
@@ -141,11 +143,11 @@ ul.c-feature__meta {
     @include font("BRANDON GROTESQUE", 0px, 400, 10px);
     color: $dove-gray;
     letter-spacing: 1px;
-    margin-top: 7px;
+    margin-top: 5px;
     text-transform: uppercase;
 
     @include min-screen($FEATURE_LARGE_BREAKPOINT) {
-    	margin-top: 10px;
+    	margin-top: 7px;
     }
 }
 

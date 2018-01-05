@@ -28,6 +28,12 @@
 }
 
 .a-header__title {
+    @include font("ITC_FENICE", 30px, 700, 32px, -4);
+    @include min-screen($TYPE_LARGE_COPY_WIDTH) {
+        @include font-size(50px);
+        @include line-height(54px);
+    }
+
     letter-spacing: 0;
     margin-top: 16px;
     margin-bottom: 10px;
@@ -47,13 +53,7 @@
         margin-top: 16px;
     }
 
-    a {
-        border-bottom: 1px solid $cornflower-blue;
-        color: $cornflower-blue;
-        text-decoration: none;
-    }
-
-    p {
+    .bb-p {
         @include font("GOTHAM", 14px, 400, 20px, -2);
         @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
             @include font-size(17px);
@@ -174,7 +174,7 @@
 }
 
 .a-header__image-caption {
-    p {
+    .bb-p {
         @include font("GOTHAM", 12px, 500, 16px, -2);
         color: $woodsmoke;
         margin-bottom: 8px;
