@@ -2,8 +2,8 @@
 
 import es6Promise from 'es6-promise';
 // Load these for css lazyload
-import loadCSS from 'fg-loadcss/src/loadCSS';
-import cssrelpreload from 'fg-loadcss/src/cssrelpreload';
+import loadCSS from 'fg-loadcss/src/loadCSS'; // eslint-disable-line no-unused-vars
+import cssrelpreload from 'fg-loadcss/src/cssrelpreload'; // eslint-disable-line no-unused-vars
 
 import {
     addClass,
