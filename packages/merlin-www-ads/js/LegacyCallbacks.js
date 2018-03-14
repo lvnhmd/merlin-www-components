@@ -4,7 +4,8 @@ import {
     addClass,
     createEventTemplate,
     getIframeFromWindow,
-    getParent
+    getParent,
+    isDefined
 } from '@cnbritain/merlin-www-js-utils/js/functions';
 import {
     setAdStateToStopped
@@ -166,4 +167,55 @@ window.cn_rubicon_resize = function(elementId, sizeString) {
 
     AdManager.slots[adEl.getAttribute('id')].forceSizeChange(adSize[0],
         adSize[1]);
+};
+
+/**
+ * Master & Companion
+ * ============================================================================
+ */
+function initialiseMasterCompanion(win, config){
+    console.log('This is a master and companion ad');
+    console.log(win, config);
+}
+
+
+/**
+ * Global listener for new ads
+ * ============================================================================
+ * Plan is to move all the old legacy callbacks to use this one and then
+ * filter out to do their jobs.
+ *
+ * {
+ *   "type": "master|native|interstitial|inread",
+ *   "config": {}
+ * }
+ *
+ */
+window.initialiseAdCallback = function initialiseAdCallback(win, config){
+
+    // Check ad is defined first
+    if(!isDefined(win)){
+        console.warn('[ADS] No window was defined for ad. Stopping.');
+        console.warn(config);
+        return;
+    }
+
+    // Check config is formatted correctly
+    if(!isDefined(config) || !config.hasOwnProperty('type')){
+        console.warn('[ADS] Config is not defined properly. Stopping.');
+        console.warn(config);
+        return;
+    }
+
+    switch(config.type){
+        case 'master':
+            initialiseMasterCompanion(win, config);
+            break;
+
+        default:
+            console.warn('[ADS] Unknown ad type. Stopping.');
+            console.warn(config);
+            return;
+    }
+
 };
