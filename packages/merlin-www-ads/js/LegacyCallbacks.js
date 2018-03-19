@@ -9,6 +9,8 @@ import {
     isDefined
 } from '@cnbritain/merlin-www-js-utils/js/functions';
 import {
+    isAdRendered,
+    isAdDestroyed,
     setAdStateToStopped
 } from './Utils';
 import InreadAd from './InreadAd';
@@ -174,11 +176,31 @@ window.cn_rubicon_resize = function(elementId, sizeString) {
  * Master & Companion
  * ============================================================================
  */
-function initialiseMasterCompanion(win, config){
-    /* eslint-disable no-console */
-    console.log('This is a master and companion ad');
-    console.log(win, config);
-    /* eslint-enable no-console */
+function initialiseMasterCompanion(){
+    // Find the master
+    var master = AdManager.findAd(function(ad){
+        return ad.get('master');
+    });
+    if(!master){
+        console.error('[ADS] Cannot find master!');
+        return;
+    }
+
+    // Find any companions
+    var companions = AdManager.findAllAds(function(ad){
+        return ad.get('companion') && !isAdRendered(ad) && !isAdDestroyed(ad);
+    });
+    if(companions.length === 0){
+        console.log('no companions found');
+        return;
+    }
+    // Remove any ads from their groups
+    companions.forEach(function(ad){
+        ad.group.remove(ad);
+    });
+
+    // Refresh master and all companions
+    return AdManager.refresh([].concat(master, companions));
 }
 
 
@@ -195,7 +217,13 @@ function initialiseMasterCompanion(win, config){
  *
  */
 function onMessage(e){
-    // TODO: check domain
+    // Domain check - this should be the same as the current origin as the
+    // ad is put into an empty iframe
+    if(e.origin !== window.location.origin){
+        // TODO: turn this log off
+        console.log(e);
+        return;
+    }
 
     // Parse message data
     var messageData = null;
@@ -204,6 +232,7 @@ function onMessage(e){
     } catch (err) {
         console.warn('[ADS] Erroring parsing message data!');
         console.warn(err);
+        console.warn(e);
         return;
     }
 
@@ -220,7 +249,7 @@ function onMessage(e){
 
     switch(config.type){
     case 'master':
-        initialiseMasterCompanion(e.source, config);
+        initialiseMasterCompanion();
         break;
 
     default:

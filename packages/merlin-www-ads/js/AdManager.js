@@ -76,6 +76,41 @@ AdManager.prototype = inherit(EventEmitter.prototype, {
             }.bind(this));
     },
 
+    'findAd': function(predicate){
+        var adKeys = Object.keys(this.slots);
+        if(adKeys.length === 0) return;
+
+        var i = 0;
+        var len = adKeys.length;
+        var ad = null;
+        for (; i < len; i++) {
+            ad = this.slots[adKeys[i]];
+            if(ad !== null && predicate(ad)){
+                return ad;
+            }
+        }
+
+        return undefined;
+    },
+
+    'findAllAds': function(predicate){
+        var adKeys = Object.keys(this.slots);
+        if(adKeys.length === 0) return;
+
+        var found = [];
+        var i = 0;
+        var len = adKeys.length;
+        var ad = null;
+        for (; i < len; i++) {
+            ad = this.slots[adKeys[i]];
+            if(ad !== null && predicate(ad)){
+                found.push(ad);
+            }
+        }
+
+        return found;
+    },
+
     /**
      * Gets all the ad slots
      * @param  {Object} options
