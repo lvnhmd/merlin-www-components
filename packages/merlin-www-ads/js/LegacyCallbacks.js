@@ -190,10 +190,7 @@ function initialiseMasterCompanion(){
     var companions = AdManager.findAllAds(function(ad){
         return ad.get('companion') && !isAdRendered(ad) && !isAdDestroyed(ad);
     });
-    if(companions.length === 0){
-        console.log('no companions found');
-        return;
-    }
+    if(companions.length === 0) return;
     // Remove any ads from their groups
     companions.forEach(function(ad){
         ad.group.remove(ad);
@@ -219,11 +216,7 @@ function initialiseMasterCompanion(){
 function onMessage(e){
     // Domain check - this should be the same as the current origin as the
     // ad is put into an empty iframe
-    if(e.origin !== window.location.origin){
-        // TODO: turn this log off
-        console.log(e);
-        return;
-    }
+    if(e.origin !== window.location.origin) return;
 
     // Parse message data
     var messageData = null;
