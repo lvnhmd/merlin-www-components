@@ -20,11 +20,13 @@ import {
  */
 export var AD_DEFAULTS = {
     'bidding': false,
+    'companion': false,
     'creativeId': null,
     'dfp': null,
     'group': null,
     'lazyload': false,
     'lineItemId': null,
+    'master': false,
     'nativeStyle': 0,
     'order': Number.MAX_VALUE,
     'placement': null,

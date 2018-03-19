@@ -156,8 +156,10 @@ export var AD_STATES = {
  */
 var DEFAULT_AD_ELEMENT_ATTRIBUTES = {
     'bidding': false,
+    'companion': false,
     'group': null,
     'lazyload': false,
+    'master': false,
     'nativeStyle': 0,
     'order': Number.MAX_VALUE,
     'placement': null,
@@ -183,6 +185,13 @@ var AD_ATTRIBUTE_MAP = {
         },
         'required': true
     },
+    'companion': {
+        'map': function toBool(value){
+            // lol
+            return String(value).toLowerCase() === 'true';
+        },
+        'required': false
+    },
     'group': {
         'map': function toString(value){
             if(value === null || value === 'null') return null;
@@ -191,6 +200,13 @@ var AD_ATTRIBUTE_MAP = {
         'required': false
     },
     'lazyload': {
+        'map': function toBool(value){
+            // lol
+            return String(value).toLowerCase() === 'true';
+        },
+        'required': false
+    },
+    'master': {
         'map': function toBool(value){
             // lol
             return String(value).toLowerCase() === 'true';
