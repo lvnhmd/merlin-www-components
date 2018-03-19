@@ -2,6 +2,7 @@
 
 import {
     addClass,
+    addEvent,
     createEventTemplate,
     getIframeFromWindow,
     getParent,
@@ -174,8 +175,10 @@ window.cn_rubicon_resize = function(elementId, sizeString) {
  * ============================================================================
  */
 function initialiseMasterCompanion(win, config){
+    /* eslint-disable no-console */
     console.log('This is a master and companion ad');
     console.log(win, config);
+    /* eslint-enable no-console */
 }
 
 
@@ -191,15 +194,23 @@ function initialiseMasterCompanion(win, config){
  * }
  *
  */
-window.initialiseAdCallback = function initialiseAdCallback(win, config){
+function onMessage(e){
+    // TODO: check domain
 
-    // Check ad is defined first
-    if(!isDefined(win)){
-        console.warn('[ADS] No window was defined for ad. Stopping.');
-        console.warn(config);
+    // Parse message data
+    var messageData = null;
+    try {
+        messageData = JSON.parse(e.data);
+    } catch (err) {
+        console.warn('[ADS] Erroring parsing message data!');
+        console.warn(err);
         return;
     }
 
+    // Check if the message is ad related
+    if(messageData.type !== 'cnd_ads') return;
+
+    var config = messageData.data;
     // Check config is formatted correctly
     if(!isDefined(config) || !config.hasOwnProperty('type')){
         console.warn('[ADS] Config is not defined properly. Stopping.');
@@ -208,14 +219,15 @@ window.initialiseAdCallback = function initialiseAdCallback(win, config){
     }
 
     switch(config.type){
-        case 'master':
-            initialiseMasterCompanion(win, config);
-            break;
+    case 'master':
+        initialiseMasterCompanion(e.source, config);
+        break;
 
-        default:
-            console.warn('[ADS] Unknown ad type. Stopping.');
-            console.warn(config);
-            return;
+    default:
+        console.warn('[ADS] Unknown ad type. Stopping.');
+        console.warn(config);
+        return;
     }
 
-};
+}
+addEvent(window, 'message', onMessage);
