@@ -3,7 +3,7 @@
         {{# data.title }}
             <h5 class="ad__title">{{ data.title }}</h5>
         {{/ data.title }}
-        <div class="ad__container"
+        <!-- <div class="ad__container"
             data-ad-unit="{{ data.unit }}"
             data-ad-zone="{{ data.zone }}"
             data-ad-lazyload="{{ state.is_lazyload }}"
@@ -16,6 +16,7 @@
             {{# data.group }}data-ad-group="{{ data.group }}"{{/ data.group }}
             {{# data.order }}data-ad-order="{{ data.order }}"{{/ data.order }}
             {{# data.native_style }}data-ad-nativeStyle="{{ data.native_style }}"{{/ data.native_style }}
-        ></div>
+        ></div> -->
+        <div class="ad__container" data-ad-settings="{{ json }}" data-ad-uninitialiased="true"></div>
     </div>
 </aside>
