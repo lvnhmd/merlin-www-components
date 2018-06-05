@@ -245,16 +245,6 @@
     }
 }
 
-.c-card-section--tg-articles,
-.c-card-section--v-articles {
-    @include desktop-size {
-        .c-card-list {
-            margin-right: 340px;
-            position: relative;
-        }
-    }
-}
-
 .c-card-section--dark {
     background: $black;
     margin-bottom: 0;

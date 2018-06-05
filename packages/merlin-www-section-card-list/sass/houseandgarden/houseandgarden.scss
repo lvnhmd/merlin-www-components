@@ -82,14 +82,6 @@
     max-width: none;
     padding: $MOBILE_SLICE_MARGIN $MOBILE_SIDE_GUTTER;
 
-    @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
-        padding: $TABLET_SLICE_MARGIN;
-    }
-
-    @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
-        padding: $DESKTOP_SLICE_MARGIN;
-    }
-
     .c-card-section__title {
         @include font("MILLER_DISPLAY", 16px, 400, 16px);
         color: $mine-shaft;
@@ -103,6 +95,23 @@
             @include line-height(20px);
         }
     }
+
+    .c-card__image__icon {
+        background-color: $vanilla-ice;
+
+        svg {
+            fill: $mine-shaft;
+        }
+    }
+
+    @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
+        padding: $TABLET_SLICE_MARGIN;
+    }
+
+    @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+        padding: $DESKTOP_SLICE_MARGIN;
+    }
+
 }
 
 .c-card-section--v-genre-articles + .c-card-section--v-articles {
@@ -248,14 +257,6 @@
     max-width: none;
     padding: $MOBILE_SLICE_MARGIN $MOBILE_SIDE_GUTTER;
 
-    @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
-        padding: $TABLET_SLICE_MARGIN;
-    }
-
-    @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
-        padding: $DESKTOP_SLICE_MARGIN;
-    }
-
     .c-card-section__title {
         @include font("MILLER_DISPLAY", 16px, 400, 16px);
         color: $mine-shaft;
@@ -275,6 +276,23 @@
             margin-right: 340px;
         }
     }
+
+    .c-card__image__icon {
+        background-color: $vanilla-ice;
+
+        svg {
+            fill: $mine-shaft;
+        }
+    }
+
+    @include min-screen($TABLET_SIDE_GUTTER_BREAKPOINT) {
+        padding: $TABLET_SLICE_MARGIN;
+    }
+
+    @include min-screen($DESKTOP_SIDE_GUTTER_BREAKPOINT) {
+        padding: $DESKTOP_SLICE_MARGIN;
+    }
+
 }
 
 .c-card-section__constrain {}
