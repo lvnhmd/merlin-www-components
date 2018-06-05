@@ -1,260 +1,184 @@
+
 @import "@cnbritain/merlin-www-common:wired";
+@import "@cnbritain/merlin-www-ads:wired";
+@import "@cnbritain/merlin-www-card:wired";
 
 @import "../wireframe/wireframe";
 
+// Unused modifiers
+// .c-card-list--c-splash {}
+// .c-card-list--sh-articles {}
+// .c-card-list--sh-latest-articles {}
+// .c-card-list--sh-shows {}
+// .c-card-list--sh-summary-articles {}
+// .c-card-list--sh-summary-shows {}
+// .c-card-list--tg-articles-grid {}
+
 .c-card-list--top-stories {
-    white-space: nowrap;
+    grid-gap: 0 20px;
+    grid-auto-flow: column;
 
     .c-card-list__item {
-        display: inline-block;
         width: 280px;
-        white-space: normal;
-
-        & + .c-card-list__item {
-            margin-left: 20px;
-        }
-
-        &.is-hidden {
-            height: 0;
-            overflow: hidden;
-            visibility: hidden;
-            width: 0;
-        }
-
-        &:last-child {
-            margin-right: 20px;
-        }
     }
 }
 
 .c-card-list--a-recommended,
-.c-card-list--g-recommended,
 .c-card-list--c-video-articles,
 .c-card-list--c-curated,
 .c-card-list--c-tag,
 .c-card-list--mag-articles,
 .c-card-list--v-genre-articles,
 .c-card-list--s-results {
-    margin: -10px;
+    @include one-column-layout;
+    grid-gap: 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 10px 0;
-        width: 100%;
+    .c-card {
+        border-top: 1px solid $black;
+        padding-top: 20px;
+    }
 
-        .c-card {
-            border-top: 1px solid #000;
-            padding-top: 20px;
-        }
+    .c-card--dark {
+        border-top-color: $white;
+    }
 
-        .c-card--dark {
-            border-top-color: #fff;
-        }
+    @include at-two-column {
+        @include two-column-layout;
+    }
 
-        @include two-column-size() {
-            width: 50%;
-        }
-
-        @include four-column-size() {
-            width: 25%;
-        }
+    @include at-four-column {
+        @include four-column-layout;
     }
 }
 
 .c-card-list--v-articles,
 .c-card-list--tg-articles {
-    margin: -10px;
+    @include one-column-layout;
+    grid-gap: 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 10px 0;
-        width: 100%;
-
-        .c-card {
-            border-top: 1px solid #000;
-            padding-top: 20px;
-        }
-
-        .c-card--dark {
-            border-top-color: #fff;
-        }
-
-        @include two-column-size() {
-            width: 50%;
-        }
-
-        @include four-column-size() {
-            width: 33.33333%;
-        }
+    .c-card {
+        border-top: 1px solid $black;
+        padding-top: 20px;
     }
 
-    @include two-column-size() {
-        margin: -15px -10px;
-
-        .c-card-list__item {
-            margin: 15px 0;
-        }
+    .c-card--dark {
+        border-top-color: $white;
     }
 
-    @include four-column-size() {
+    @include at-two-column {
+        @include two-column-layout;
+        grid-gap: 30px 20px;
+    }
+
+    @include at-four-column {
+        @include four-column-layout;
         margin-right: 340px;
     }
 }
 
 .c-card-list--tg-header-articles {
-    margin: -10px;
-    text-align: center;
+    @include one-column-layout;
+    grid-gap: 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 10px 0;
-        text-align: left;
-        width: 100%;
+    .c-card {
+        border-top: 1px solid $black;
+        padding-top: 20px;
+    }
 
-        .c-card {
-            border-top: 1px solid #fff;
-            padding-top: 20px;
-        }
+    .c-card--dark {
+        border-top-color: $white;
+    }
 
-        .c-card--dark {
-            border-top-color: #fff;
-        }
+    @include at-two-column {
+        @include two-column-layout;
+    }
 
-        @include two-column-size() {
-            width: 50%;
-        }
-
-        @include four-column-size() {
-            width: 33.33333%;
-        }
+    @include at-four-column {
+        @include three-column-layout;
     }
 }
 
 .c-card-list--c-magazine-articles {
-    margin: -10px;
+    @include one-column-layout;
+    grid-gap: 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 10px 0;
-        width: 100%;
+    .c-card {
+        border-top: 1px solid $black;
+        padding-top: 20px;
+    }
 
-        .c-card {
-            border-top: 1px solid #000;
-            padding-top: 20px;
-        }
+    .c-card--dark {
+        border-top-color: $white;
     }
 }
 
 .c-card-list--v-related-articles {
-    margin: -10px;
+    @include one-column-layout;
+    grid-gap: 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 20px;
-        margin: 10px 0 15px 0;
+    .c-card__image:before {
+        border: 1px solid $white;
+        bottom: 0;
+        box-sizing: border-box;
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition-duration: 300ms;
         width: 100%;
+        z-index: 1;
     }
 
-    .c-card {
-        border-top: 1px solid #fff;
-        padding-top: 15px;
-    }
-
-    .c-card__images {
-        &:after {
-            border: 1px solid $white;
-            bottom: 0;
-            box-sizing: border-box;
-            content: '';
-            height: 100%;
-            left: 0;
-            opacity: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition-duration: 300ms;
-            width: 100%;
-        }
-    }
-
-    .c-card__image {
-        position: relative;
-
-        &:after {
-            @include font("BRUTAL", 10px, 600);
-            background-color: $white;
-            bottom: 0px;
-            color: $black;
-            content: 'Now Playing';
-            left: 0px;
-            opacity: 0;
-            padding: 5px 7px;
-            position: absolute;
-            text-transform: uppercase;
-            transition-duration: 300ms;
-            z-index: 1;
-        }
+    .c-card__image:after {
+        @include font("BRUTAL", 10px, 'SEMI BOLD');
+        background-color: $white;
+        bottom: 0px;
+        color: $black;
+        content: 'Now Playing';
+        left: 0px;
+        opacity: 0;
+        padding: 5px 7px;
+        position: absolute;
+        text-transform: uppercase;
+        transition-duration: 300ms;
+        z-index: 1;
     }
 
     .is-active {
-        .c-card {
-            &:hover,
-            &:focus {
-                .c-card__title span {
-                    text-decoration: none;
-                }
-            }
-        }
-        .c-card__images,
-        .c-card__image {
-            &:after {
-                opacity: 1;
-            }
+        .c-card__image:before,
+        .c-card__image:after {
+            opacity: 1;
         }
     }
 
 }
 
 .c-card-list--mag-magazines {
-    margin: -15px;
+    @include two-column-layout;
+    grid-gap: 30px 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 15px 0;
-        width: 50%;
-
-        @include four-column-size() {
-            width: 25%;
-        }
+    @include at-four-column {
+        @include four-column-layout;
     }
 }
 
 .c-card-list--c-contributors {
-    margin: -10px;
-    text-align: center;
+    @include one-column-layout;
+    grid-gap: 20px;
 
-    .c-card-list__item {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 10px 0;
-        width: 100%;
+    .c-card {
+        border-top: 1px solid $black;
+        padding-top: 20px;
+    }
 
-        .c-card {
-            border-top: 1px solid #000;
-            padding-top: 20px;
-        }
+    .c-card--dark {
+        border-top-color: $white;
+    }
 
-        .c-card--dark {
-            border-top-color: #fff;
-        }
-
-        @include two-column-size() {
-            width: 33.33333%;
-        }
+    @include at-two-column {
+        @include three-column-layout;
     }
 }

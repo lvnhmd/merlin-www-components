@@ -1,0 +1,38 @@
+
+@mixin at-two-column {
+    @include at-small-size {
+        @content;
+    }
+}
+
+@mixin at-three-column {
+    @include at-large-size {
+        @content;
+    }
+}
+
+@mixin at-four-column {
+    @include at-x-large-size {
+        @content;
+    }
+}
+
+@mixin one-column-layout {
+    grid-template-columns: 1fr;
+}
+
+@mixin two-column-layout {
+    grid-template-columns: 1fr 1fr;
+}
+
+@mixin three-column-layout {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@mixin four-column-layout {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@mixin five-column-layout {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
