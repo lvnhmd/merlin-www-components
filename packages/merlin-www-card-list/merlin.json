@@ -4,13 +4,17 @@
         "demo": "demo/demo.js"
     },
     "themes": {
-        "tatler": "sass/tatler/tatler.scss",
         "wireframe": "sass/wireframe/wireframe.scss",
-        "glamour": "sass/glamour/glamour.scss",
+        "brides": "sass/brides/brides.scss",
         "bystander": "sass/bystander/bystander.scss",
-        "wired": "sass/wired/wired.scss",
+        "glamour": "sass/glamour/glamour.scss",
+        "gq": "sass/gq/gq.scss",
+        "houseandgarden": "sass/houseandgarden/houseandgarden.scss",
         "missvogue": "sass/missvogue/missvogue.scss",
-        "vogue": "sass/vogue/vogue.scss"
+        "tatler": "sass/tatler/tatler.scss",
+        "traveller": "sass/traveller/traveller.scss",
+        "vogue": "sass/vogue/vogue.scss",
+        "wired": "sass/wired/wired.scss"
     },
     "partials": {
         "section": "templates/card-list.html"
@@ -23,6 +27,27 @@
     "currentTheme": null,
     "main": "section",
     "data": {
-        "section": "demo/data/card-list.json"
+        "a-recommended": "data/a-recommended.json",
+        "c-contributors": "data/c-contributors.json",
+        "c-curated": "data/c-curated.json",
+        "c-magazine-articles": "data/c-magazine-articles.json",
+        "c-splash": "data/c-splash.json",
+        "c-tag": "data/c-tag.json",
+        "c-video-articles": "data/c-video-articles.json",
+        "mag-articles": "data/mag-articles.json",
+        "mag-magazines": "data/mag-magazines.json",
+        "s-results": "data/s-results.json",
+        "sh-articles": "data/sh-articles.json",
+        "sh-latest-articles": "data/sh-latest-articles.json",
+        "sh-shows": "data/sh-shows.json",
+        "sh-summary-articles": "data/sh-summary-articles.json",
+        "sh-summary-shows": "data/sh-summary-shows.json",
+        "tg-articles-grid": "data/tg-articles-grid.json",
+        "tg-articles": "data/tg-articles.json",
+        "tg-header-articles": "data/tg-header-articles.json",
+        "top-stories": "data/top-stories.json",
+        "v-articles": "data/v-articles.json",
+        "v-genre-articles": "data/v-genre-articles.json",
+        "v-related-articles": "data/v-related-articles.json"
     }
 }
