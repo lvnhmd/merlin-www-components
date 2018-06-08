@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.16.7"></a>
+## [1.16.7](https://github.com/cnduk/merlin-www-components/compare/@cnbritain/merlin-www-assets@1.16.6...@cnbritain/merlin-www-assets@1.16.7) (2018-06-07)
+
+
+### Bug Fixes
+
+* **tatler:** Tatler Gallery arrows state need colour amending [ch3212] ([428920b](https://github.com/cnduk/merlin-www-components/commit/428920b))
+
+
+
+
+<a name="1.16.6"></a>
+## [1.16.6](https://github.com/cnduk/merlin-www-components/compare/@cnbritain/merlin-www-assets@1.16.5...@cnbritain/merlin-www-assets@1.16.6) (2018-06-06)
+
+
+
+
+**Note:** Version bump only for package @cnbritain/merlin-www-assets
+
 <a name="1.16.4"></a>
 ## [1.16.4](https://github.com/cnduk/merlin-www-components/compare/@cnbritain/merlin-www-assets@1.16.3...@cnbritain/merlin-www-assets@1.16.4) (2018-06-04)
 
