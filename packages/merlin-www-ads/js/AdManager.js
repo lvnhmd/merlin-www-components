@@ -1,5 +1,6 @@
 'use strict';
 /* globals googletag */
+/* eslint no-console: 0 */
 
 import Ad from './Ad';
 import AdGroup from './AdGroup';

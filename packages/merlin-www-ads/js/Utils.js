@@ -1,5 +1,6 @@
 'use strict';
 /* globals googletag, rubicontag, pbjs */
+/* eslint no-console: 0 */
 
 /**
  * @module Utils
@@ -605,7 +606,7 @@ export function pushToGoogleTag(callback){
 export function refreshGPT(ads, changeCorrelator){
     return pushToGoogleTag(function(res){
 
-        console.log("Refreshing GPT", ads);
+        console.log('Refreshing GPT', ads);
 
         var slots = null;
         var slotIds = null;
@@ -652,7 +653,7 @@ export function refreshRubicon(ads){
         // If rubicon is not loaded, dont do it
         if(!RUBICON_LOADED) return res();
 
-        console.log("Refreshing rubicon", ads);
+        console.log('Refreshing rubicon', ads);
 
         var slots = null;
         if(Array.isArray(ads)){
@@ -827,7 +828,7 @@ export function registerPrebid(ad){
 export function registerRubicon(ad){
     return pushToGoogleTag(function(res){
         if(RUBICON_LOADED && hasHeaderBidding(ad)){
-            console.log("Registering rubicon", ad);
+            console.log('Registering rubicon', ad);
             rubicontag.defineSlot(
                 ad.get('dfp'),
                 ad.get('sizes'),
@@ -840,7 +841,7 @@ export function registerRubicon(ad){
 
 export function renderGPT(ad){
     return pushToGoogleTag(function(res){
-        console.log("Rendering GPT", ad);
+        console.log('Rendering GPT', ad);
         googletag.display(ad.id);
         res();
     });
