@@ -42,6 +42,7 @@ window.GptAdSlots = {
         // Set the ad to stopped. This is to prevent the slotRenderEnded
         // event that fires after from removing is-hidden class
         var ad = AdManager.slots[parentAd.getAttribute('id')];
+        console.log('Blank ad', parentAd.getAttribute('id'), ad);
         setAdStateToStopped(ad);
         ad.emit('stop', createEventTemplate('stop', ad, {
             'originalEvent': null

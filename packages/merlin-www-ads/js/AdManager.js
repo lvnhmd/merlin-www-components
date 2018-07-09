@@ -339,7 +339,8 @@ function onSlotRenderEnded(e){
     // Ad has already been destroyed, forget about it
     if(ad === null) return;
 
-    console.log('onSlotRenderEnded');
+    console.group('onSlotRenderEnded');
+    console.log(e.slot.getSlotElementId(), ad);
     console.log('Blank?', e.isEmpty);
     console.log('Ad stopped?', ad.state === AD_STATES.STOPPED);
 
@@ -360,6 +361,8 @@ function onSlotRenderEnded(e){
         console.log('Creative id', e.creativeId);
         console.log('Lineitem id', e.lineItemId);
     }
+
+    console.groupEnd();
 
     ad.emit(renderEvent, createEventTemplate(renderEvent, ad, {
         'originalEvent': e
