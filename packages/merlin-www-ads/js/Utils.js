@@ -605,6 +605,8 @@ export function pushToGoogleTag(callback){
 export function refreshGPT(ads, changeCorrelator){
     return pushToGoogleTag(function(res){
 
+        console.log("Refreshing GPT", ads);
+
         var slots = null;
         var slotIds = null;
         if(Array.isArray(ads)){
@@ -650,6 +652,8 @@ export function refreshRubicon(ads){
         // If rubicon is not loaded, dont do it
         if(!RUBICON_LOADED) return res();
 
+        console.log("Refreshing rubicon", ads);
+
         var slots = null;
         if(Array.isArray(ads)){
             slots = ads.filter(hasHeaderBidding).map(getRubiconSlot);
@@ -677,6 +681,8 @@ export function refreshRubicon(ads){
 
 export function registerGPT(ad){
     return pushToGoogleTag(function(){
+        console.log('Registering ad', ad.id, ad.get('sizes'), ad);
+
         // Create the slot
         var slot = googletag.defineSlot(ad.get('dfp'),
             ad.get('sizes'), ad.id);
@@ -821,6 +827,7 @@ export function registerPrebid(ad){
 export function registerRubicon(ad){
     return pushToGoogleTag(function(res){
         if(RUBICON_LOADED && hasHeaderBidding(ad)){
+            console.log("Registering rubicon", ad);
             rubicontag.defineSlot(
                 ad.get('dfp'),
                 ad.get('sizes'),
@@ -833,6 +840,7 @@ export function registerRubicon(ad){
 
 export function renderGPT(ad){
     return pushToGoogleTag(function(res){
+        console.log("Rendering GPT", ad);
         googletag.display(ad.id);
         res();
     });

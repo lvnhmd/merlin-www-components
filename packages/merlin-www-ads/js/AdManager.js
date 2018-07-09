@@ -338,6 +338,10 @@ function onSlotRenderEnded(e){
     // Ad has already been destroyed, forget about it
     if(ad === null) return;
 
+    console.log('onSlotRenderEnded');
+    console.log('Blank?', e.isEmpty);
+    console.log('Ad stopped?', ad.state === AD_STATES.STOPPED);
+
     // If the slot is empty or we have told the ad to stop before
     // (Blank advert), fire a stop event
     if( e.isEmpty || ad.state === AD_STATES.STOPPED ){
@@ -351,6 +355,9 @@ function onSlotRenderEnded(e){
         ad.type = getAdTypeBySize(e.size[0], e.size[1]);
         removeClass(ad.el.parentNode.parentNode, 'is-hidden');
         renderEvent = 'render';
+        console.log('Rendering');
+        console.log('Creative id', e.creativeId);
+        console.log('Lineitem id', e.lineItemId);
     }
 
     ad.emit(renderEvent, createEventTemplate(renderEvent, ad, {
